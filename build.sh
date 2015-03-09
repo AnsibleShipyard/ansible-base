@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOCKERNAME="ansibleshipyard/ansible-base"
+DOCKER_DIR="dockerfiles"
 TAGS=(ubuntu centos)
 
 usage() {
@@ -39,6 +40,11 @@ build() {
   fi;
 }
 
-for tag in ${TAGS[@]}; do
-  build ${tag}
-done
+main() {
+  pushd $DOCKER_DIR
+  for tag in ${TAGS[@]}; do
+    build ${tag}
+  done
+}
+
+main
