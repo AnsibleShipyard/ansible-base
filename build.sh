@@ -3,6 +3,7 @@
 DOCKERNAME="ansibleshipyard/ansible-base"
 DOCKER_DIR="dockerfiles"
 TAGS=(ubuntu centos)
+CONTEXT=.
 
 usage() {
   local tag=$1
@@ -22,28 +23,31 @@ usage() {
 build() {
   local tag=$1
 
-  pushd $tag
+  # pushd $tag
 
   # Builds the image
-  cmd=time docker build --force-rm -t $DOCKERNAME:$tag .
+  cmd="docker build -f $DOCKER_DIR/$tag/Dockerfile --force-rm -t $DOCKERNAME:$tag $CONTEXT"
 
-  echo "$cmd"
+  echo "Command to execute: [$cmd]"
 
-  run=$($cmd)
+  $cmd
 
   if [ $? == 0 ]; then
+    echo "$tag build successful!"
     usage $tag
-    popd
+    return 0
   else
-    echo "Build failed!"
-    exit 1
+    return 1
   fi;
 }
 
 main() {
-  pushd $DOCKER_DIR
+  # pushd $DOCKER_DIR
   for tag in ${TAGS[@]}; do
     build ${tag}
+    if [ $? != 0 ]; then
+      echo "$tag build failed!"
+    fi;
   done
 }
 
