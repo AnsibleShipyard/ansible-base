@@ -19,5 +19,5 @@ docker pull [ansibleshipyard/ansible-base:centos](https://registry.hub.docker.co
 ### Building
 
 ```bash
-bash build.go
+bash build.sh
 ```
