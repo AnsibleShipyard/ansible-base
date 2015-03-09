@@ -21,8 +21,10 @@ usage() {
 build() {
   local tag=$1
 
+  pushd $tag
+
   # Builds the image
-  cmd=time docker build -f Dockerfile.$tag --force-rm -t $DOCKERNAME:$tag .
+  cmd=time docker build --force-rm -t $DOCKERNAME:$tag .
 
   echo "$cmd"
 
@@ -30,6 +32,7 @@ build() {
 
   if [ $? == 0 ]; then
     usage $tag
+    popd
   else
     echo "Build failed!"
     exit 1

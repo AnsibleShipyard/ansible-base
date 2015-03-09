@@ -1,15 +1,14 @@
 # ------------------------------------------------------
 #                       Dockerfile
 # ------------------------------------------------------
-# image:    ansible-base-ubuntu
+# image:    ansible-base
 # tag:      latest
-# name:     ansibleshipyard/ansible-mesos
-# version:  v0.1.1
-# repo:     https://github.com/AnsibleShipyard/ansible-base-ubuntu
-# how-to:   docker build --force-rm -t ansibleshipyard/ansible-base-ubuntu .
+# name:     ansibleshipyard/ansible-base
+# version:  v1.0.0
+# repo:     https://github.com/AnsibleShipyard/ansible-base
+# how-to:   docker build --force-rm -t ansibleshipyard/ansible-base:ubuntu .
 # Requires:
 # authors:  github:@jasongiedymin,
-#           github:
 # ------------------------------------------------------
 
 # will be 14.04.1

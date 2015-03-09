@@ -1,15 +1,14 @@
 # ------------------------------------------------------
 #                       Dockerfile
 # ------------------------------------------------------
-# image:    ansible-base-ubuntu
-# tag:      centos-latest
-# name:     ansibleshipyard/ansible-mesos
-# version:  v0.1.1
+# image:    ansible-base
+# tag:      centos
+# name:     ansibleshipyard/ansible-base
+# version:  v1.0.0
 # repo:     https://github.com/AnsibleShipyard/ansible-base
-# how-to:   docker build -f Dockerfile.centos --force-rm -t ansibleshipyard/ansible-base:centos-latest .
+# how-to:   docker build --force-rm -t ansibleshipyard/ansible-base:centos .
 # Requires:
 # authors:  github:@jasongiedymin,
-#           github:
 # ------------------------------------------------------
 
 FROM centos:latest
